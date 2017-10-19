@@ -8,63 +8,70 @@ class PHSList2 {
 	
 	public PHSList2(Object obj)
 	  {
-		head = new PHSListNode(obj, null);
-		numNodes = 1;
+		head = new PHSListNode(obj);
 	  }
 	
 	
 	public void addToEnd(Object value) {
 		
 		PHSListNode temp = head;
-		head = new PHSListNode(value, null);
-		head.next = temp;
+		
+		while(temp.next != null) {
+			temp = temp.next;
+		}
+		
+		temp.next = new PHSListNode(value);
 		numNodes++;
 	}
 	
-    
-	public static void main(String[] args) {
-		PHSListNode <String> myList = new PHSListNode<String>("Honda",
-									  new PHSListNode<String>("Toyota",
-									  new PHSListNode<String>("Nissan",
-									  new PHSListNode<String>("BMW",
-									  new PHSListNode<String>("Daihatsu",
-									  new PHSListNode<String>("Subaru",
-									  new PHSListNode<String>("Chevrolet",
-									  new PHSListNode<String>("AMC", null))))))));
-		
-		myList.Print(myList);
-		
-	}
-}
-
-
-class PHSListNode <E> {
-
-	PHSListNode<E> next;
-	private Object value;
 	
-	public PHSListNode(Object newVal, PHSListNode<E> nextVal) {
-		value = newVal;
-		next = nextVal;
-	}
-	
-	public void Print(PHSListNode<String> myNode) {
+	public static void Print() {
 		String result = "[ ";
 		
-		while (myNode != null) {
-			result += myNode.getValue().toString();
+		PHSListNode temp = head;
+		while(temp != null)
+		{
+			result += temp.value;
 			result += " ";
-			myNode = myNode.getNext();
+			temp = temp.next;
 		}
 		
 		result += "]";
 		System.out.println(result);
 		
 	}
+	
+    
+	public static void main(String[] args) {
+		PHSList2 myList = new PHSList2("head");
+		myList.addToEnd("Honda");
+		myList.addToEnd("Daihatsu");
+		myList.addToEnd("Nissan");
+		myList.addToEnd("Mitsubishi");
+		myList.addToEnd("Subaru");
+		myList.addToEnd("Mazda");
+		myList.addToEnd("Suzuki");
+		myList.addToEnd("Toyota");
+		
+		PHSList2.Print();
+		
+	}
+}
+
+
+class PHSListNode {
+
+	PHSListNode next;
+	Object value;
+	
+	
+	public PHSListNode(Object val) {
+		value = val;
+	}
 
 	public Object getValue() {return value;}
-	public PHSListNode<E> getNext() {return next;}
+	public PHSListNode getNext() {return next;}
 	public void setValue(Object newVal) {value = newVal;}
-	public void setNext(PHSListNode<E> newNext) {next = newNext;}
+	public void setNext(PHSListNode newNext) {next = newNext;}
 	
 }
