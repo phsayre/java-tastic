@@ -25,6 +25,21 @@ class PHSList2 {
 	}
 	
 	
+	public void firstElement(PHSList2 list) {
+		//point to first element 
+	}
+	
+	
+	public void nextElement(PHSListNode obj) {
+		//point to the next element
+	}
+	
+	
+	public void hasMoreElements(PHSListNode obj) {
+		//check if there's another element in the list after the current one
+	}
+	
+	
 	public static void Print() {
 		String result = "[ ";
 		
