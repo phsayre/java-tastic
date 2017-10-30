@@ -4,6 +4,7 @@ class PHSList2 {
 
 	private static PHSListNode head;
 	private static int numNodes;
+	public static int currentObj;
 	
 	
 	public PHSList2(Object obj)
@@ -25,18 +26,25 @@ class PHSList2 {
 	}
 	
 	
-	public void firstElement(PHSList2 list) {
-		//point to first element 
+	public void firstElement() {
+		currentObj = 0;
 	}
 	
 	
-	public void nextElement(PHSListNode obj) {
-		//point to the next element
+	public void nextElement() {
+		currentObj ++;
 	}
 	
 	
-	public void hasMoreElements(PHSListNode obj) {
-		//check if there's another element in the list after the current one
+	public boolean hasMoreElements(int curr) {
+		try {
+			PHSListNode temp = head;
+			temp = temp.next;
+			return true;
+		}
+		catch (Exception e) {
+			return false;
+		}
 	}
 	
 	
@@ -69,6 +77,8 @@ class PHSList2 {
 		myList.addToEnd("Toyota");
 		
 		PHSList2.Print();
+		
+		System.out.print("There are " + numNodes + " items in the list.");
 		
 	}
 }
