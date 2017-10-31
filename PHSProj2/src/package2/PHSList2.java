@@ -1,20 +1,18 @@
 package package2;
 
-class PHSList2 {
+public class PHSList2 {
 
 	private static PHSListNode head;
 	private static int numNodes;
-	public static int currentObj;
+	public PHSListNode currentObj = head;
 	
 	
-	public PHSList2(Object obj)
-	  {
+	public PHSList2(Object obj) {
 		head = new PHSListNode(obj);
 	  }
 	
 	
 	public void addToEnd(Object value) {
-		
 		PHSListNode temp = head;
 		
 		while(temp.next != null) {
@@ -27,16 +25,26 @@ class PHSList2 {
 	
 	
 	public void firstElement() {
-		currentObj = 0;
+		currentObj = head;
 	}
 	
 	
-	public void nextElement() {
-		currentObj ++;
+	public void nextElement(Object obj) {
+		try {
+			if (hasMoreElements(obj)) {
+				currentObj = currentObj.next;
+			}
+			else {
+				throw new NoNextElementException();
+			}
+		}
+		catch (NoNextElementException ex) {
+			System.out.println("Exception thrown: end of the list.");
+		}
 	}
 	
 	
-	public boolean hasMoreElements(int curr) {
+	public boolean hasMoreElements(Object obj) {
 		try {
 			PHSListNode temp = head;
 			temp = temp.next;
@@ -99,4 +107,15 @@ class PHSListNode {
 	public void setValue(Object newVal) {value = newVal;}
 	public void setNext(PHSListNode newNext) {next = newNext;}
 	
+}
+
+
+@SuppressWarnings("serial")
+class NoNextElementException extends Exception {
+	
+	public NoNextElementException() {}
+	
+	public NoNextElementException(String message) {
+		super(message);
+	}
 }
