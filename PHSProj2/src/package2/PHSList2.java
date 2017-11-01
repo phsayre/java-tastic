@@ -1,15 +1,15 @@
 package package2;
 
 public class PHSList2 {
-
+	
 	private static PHSListNode head;
 	private static int numNodes;
-	public PHSListNode currentObj = head;
+	public static int currentObj;
 	
 	
 	public PHSList2(Object obj) {
 		head = new PHSListNode(obj);
-	  }
+	}
 	
 	
 	public void addToEnd(Object value) {
@@ -24,23 +24,18 @@ public class PHSList2 {
 	}
 	
 	
-	public void firstElement() {
-		currentObj = head;
+	public static Object findValue(int index) {
+		PHSListNode temp = head;
+		
+		for (int i = 0; i < index; i++) {
+			temp = temp.next;
+		}
+		return temp.value;
 	}
 	
 	
-	public void nextElement(Object obj) {
-		try {
-			if (hasMoreElements(obj)) {
-				currentObj = currentObj.next;
-			}
-			else {
-				throw new NoNextElementException();
-			}
-		}
-		catch (NoNextElementException ex) {
-			System.out.println("Exception thrown: end of the list.");
-		}
+	public void firstElement() {
+		currentObj = 0;
 	}
 	
 	
@@ -50,8 +45,22 @@ public class PHSList2 {
 			temp = temp.next;
 			return true;
 		}
-		catch (Exception e) {
+		catch (Exception ex) {
 			return false;
+		}
+	}
+	
+	
+	public void nextElement(Object obj) {
+		try {
+			if (hasMoreElements(obj)) {
+				currentObj++;			}
+			else {
+				throw new NoNextElementException();
+			}
+		}
+		catch (NoNextElementException ex) {
+			System.out.println("Exception thrown: end of the list.");
 		}
 	}
 	
@@ -69,34 +78,32 @@ public class PHSList2 {
 		
 		result += "]";
 		System.out.println(result);
-		
 	}
 	
     
 	public static void main(String[] args) {
-		PHSList2 myList = new PHSList2("head");
+		PHSList2 myList = new PHSList2("Toyota");
 		myList.addToEnd("Honda");
 		myList.addToEnd("Daihatsu");
 		myList.addToEnd("Nissan");
 		myList.addToEnd("Mitsubishi");
 		myList.addToEnd("Subaru");
-		myList.addToEnd("Mazda");
-		myList.addToEnd("Suzuki");
-		myList.addToEnd("Toyota");
 		
 		PHSList2.Print();
 		
-		System.out.print("There are " + numNodes + " items in the list.");
+		System.out.println("There are " + numNodes + " items in the list");
 		
+		myList.firstElement();
+		
+		System.out.println("The first element in the list is [" + findValue(currentObj) +  "]");
 	}
 }
 
 
 class PHSListNode {
-
+	
 	PHSListNode next;
 	Object value;
-	
 	
 	public PHSListNode(Object val) {
 		value = val;
@@ -106,7 +113,6 @@ class PHSListNode {
 	public PHSListNode getNext() {return next;}
 	public void setValue(Object newVal) {value = newVal;}
 	public void setNext(PHSListNode newNext) {next = newNext;}
-	
 }
 
 
