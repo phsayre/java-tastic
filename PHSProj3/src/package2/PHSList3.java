@@ -9,6 +9,7 @@ public class PHSList2 {
 	
 	public PHSList2(Object obj) {
 		head = new PHSListNode(obj);
+		numNodes++;
 	}
 	
 	
@@ -60,7 +61,7 @@ public class PHSList2 {
 			}
 		}
 		catch (NoNextElementException ex) {
-			System.out.println("Exception thrown: end of the list.");
+			System.out.println("Exception thrown: end of the list");
 		}
 	}
 	
@@ -84,18 +85,19 @@ public class PHSList2 {
 	public static void main(String[] args) {
 		PHSList2 myList = new PHSList2("Toyota");
 		myList.addToEnd("Honda");
-		myList.addToEnd("Daihatsu");
-		myList.addToEnd("Nissan");
-		myList.addToEnd("Mitsubishi");
 		myList.addToEnd("Subaru");
 		
 		PHSList2.Print();
 		
 		System.out.println("There are " + numNodes + " items in the list");
 		
-		myList.firstElement();
+		System.out.println("The first element in the list is [" + findValue(currentObj) + "]");
 		
-		System.out.println("The first element in the list is [" + findValue(currentObj) +  "]");
+		while(myList.hasMoreElements(myList)) {
+			myList.nextElement(myList);
+			
+			System.out.println("The next element in the list is [" + findValue(currentObj) + "]");
+		}
 	}
 }
 
