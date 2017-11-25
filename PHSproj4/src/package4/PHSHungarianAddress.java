@@ -37,6 +37,19 @@ public class PHSHungarianAddress {
 	public void parseAddress() {
 		inputTitle();
 		inputName();
+		inputPostCode();
+		inputCity();
+		inputStreetName();
+		inputStreetNumber();
+		
+		if(isApartment()) {
+			inputAptFloor();
+			inputAptNumber();
+			
+		}
+		else {
+			
+		}
 	}
 	
 	public void inputTitle() {
@@ -66,6 +79,50 @@ public class PHSHungarianAddress {
 		
 		Scanner sc = new Scanner(System.in);
 		city = sc.nextLine();
+	}
+	
+	public void inputStreetName() {
+		System.out.println("Please enter the street name (ommitting the street number)");
+		
+		Scanner sc = new Scanner(System.in);
+		streetName = sc.nextLine();
+	}
+	
+	public void inputStreetNumber() {
+		System.out.println("Please enter the street number");
+		
+		Scanner sc = new Scanner(System.in);
+		streetNumber = sc.nextInt();
+	}
+	
+	public void inputAptFloor() {
+		System.out.println("Please enter the apartment floor (integer value)");
+		
+		Scanner sc = new Scanner(System.in);
+		aptFloor = sc.nextInt();
+	}
+	
+	public void inputAptNumber() {
+		System.out.println("Please enter the apartment number (integer value)");
+		
+		Scanner sc = new Scanner(System.in);
+		aptNumber = sc.nextInt();
+	}
+	
+	public Boolean isApartment() {
+		System.out.println("Is this an apartment? (Enter 1 or 2)");
+		System.out.println("1: Yes");
+		System.out.println("2: No");
+		
+		Scanner sc = new Scanner(System.in);
+		int i = sc.nextInt();
+		
+		if (i == 1) {
+			return true;
+		}
+		else {
+			return false;
+		}
 	}
 	
 	
