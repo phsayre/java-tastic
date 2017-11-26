@@ -143,7 +143,18 @@ public class PHSHungarianAddress {
 	public void displayAddresses() {
 		for(int i = 0; i < addressList.size(); i++) {
 			System.out.println("[Address " + (i + 1) + "]");
-			System.out.println(addressList.get(i).toString());
+			System.out.println(addressList.get(i).get(0).toString() + " " + addressList.get(i).get(1).toString() + " " + addressList.get(i).get(2).toString());
+			System.out.println(addressList.get(i).get(3).toString() + " " + addressList.get(i).get(4).toString());
+
+			try {
+				System.out.println(addressList.get(i).get(5).toString() + " " + addressList.get(i).get(6).toString() + " " + addressList.get(i).get(7).toString() + " " + addressList.get(i).get(8).toString());
+			}
+			catch (Exception ex) {
+				//apartment floor and number is not set
+				System.out.println(addressList.get(i).get(5).toString() + " " + addressList.get(i).get(6).toString());
+			}
+			
+			System.out.println("Magyarország");
 		}
 	}
 	
