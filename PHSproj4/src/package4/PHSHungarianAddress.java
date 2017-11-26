@@ -15,7 +15,7 @@ public class PHSHungarianAddress {
 	private String aptNumber;
 	private int isApartment;
 	private int addressCount;
-	private ArrayList<ArrayList<String>> addressList = new ArrayList<ArrayList<String>>();
+	private static ArrayList<ArrayList<String>> addressList = new ArrayList<ArrayList<String>>();
 
 	
 	public String getTitle() { return title; }
@@ -142,6 +142,7 @@ public class PHSHungarianAddress {
 	
 	public void displayAddresses() {
 		for(int i = 0; i < addressList.size(); i++) {
+			System.out.println("[Address " + (i + 1) + "]");
 			System.out.println(addressList.get(i).toString());
 		}
 	}
