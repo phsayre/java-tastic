@@ -12,7 +12,13 @@ public class PHSprog4 {
 		int i = sc.nextInt();
 		
 		if(i == 1) {
-			//show saved addresses
+			PHSHungarianAddress hungy = new PHSHungarianAddress();
+			if(hungy.hasAddresses()) {
+				hungy.displayAddresses();
+			}
+			else {
+				System.out.println("No saved addresses!");
+			}
 		}
 		else if(i == 2) {
 			addressSelect();
@@ -20,6 +26,7 @@ public class PHSprog4 {
 		else {
 			System.out.println("Error: invalid input");
 		}
+		mainMenu();
 	}
 	
 	public static void addressSelect() {

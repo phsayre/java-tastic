@@ -131,6 +131,21 @@ public class PHSHungarianAddress {
 		}
 	}
 	
+	public Boolean hasAddresses() {
+		if (addressList.isEmpty()) {
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+	
+	public void displayAddresses() {
+		for(int i = 0; i < addressList.size(); i++) {
+			System.out.println(addressList.get(i).toString());
+		}
+	}
+	
 	public void formatAddress() {
 		addressCount++;
 		
