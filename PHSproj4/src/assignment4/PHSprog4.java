@@ -13,8 +13,12 @@ public class PHSprog4 {
 		
 		if(i == 1) {
 			PHSHungarianAddress hungy = new PHSHungarianAddress();
+			PHSAmericanAddress merca = new PHSAmericanAddress();
 			if(hungy.hasAddresses()) {
 				hungy.displayAddresses();
+			}
+			else if(merca.hasAddresses()) {
+				merca.displayAddresses();
 			}
 			else {
 				System.out.println("No saved addresses!");
@@ -42,7 +46,9 @@ public class PHSprog4 {
 			hungy.parseAddress();
 		}
 		else if(i == 2) {
-			//do american address
+			PHSAmericanAddress merca = new PHSAmericanAddress();
+			merca.parseAddress();
+			merca.inputState();
 		}
 		else {
 			System.out.println("Error: invalid input");

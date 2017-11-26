@@ -103,14 +103,14 @@ public class PHSHungarianAddress {
 		System.out.println("Please enter the apartment floor");
 		
 		Scanner sc = new Scanner(System.in);
-		aptFloor = sc.nextLine();
+		aptFloor = "Floor " + sc.nextLine();
 	}
 	
 	public void inputAptNumber() {
 		System.out.println("Please enter the apartment number");
 		
 		Scanner sc = new Scanner(System.in);
-		aptNumber = sc.nextLine();
+		aptNumber = "Apt " + sc.nextLine();
 	}
 	
 	public Boolean isApartment() {
