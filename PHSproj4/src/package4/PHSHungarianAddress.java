@@ -1,18 +1,22 @@
 package package4;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class PHSHungarianAddress {
 
 	private String title;
 	private String fname;
 	private String lname;
-	private int postCode;
+	private String postCode;
 	private String city;
 	private String streetName;
-	private int streetNumber;
-	private int aptFloor;
-	private int aptNumber;
-	
+	private String streetNumber;
+	private String aptFloor;
+	private String aptNumber;
+	private int isApartment;
+	private int addressCount;
+	private ArrayList<ArrayList<String>> addressList = new ArrayList<ArrayList<String>>();
+
 	
 	public String getTitle() { return title; }
 	public void setTitle(String title) { this.title = title; }
@@ -20,18 +24,18 @@ public class PHSHungarianAddress {
 	public void setFirstName(String fname) { this.fname = fname; }
 	public String getLastName() { return lname; }
 	public void setLastName(String lname) { this.lname = lname; }
-	public int getPostCode() { return postCode; }
-	public void setPostCode(int postCode) { this.postCode = postCode; }
+	public String getPostCode() { return postCode; }
+	public void setPostCode(String postCode) { this.postCode = postCode; }
 	public String getCity() { return city; }
 	public void setCity(String city) { this.city = city; }
 	public String getStreetName() { return streetName; }
 	public void setStreetName(String streetName) { this.streetName = streetName; }
-	public int getStreetNumber() { return streetNumber; }
-	public void setStreetNumber(int streetNumber) { this.streetNumber = streetNumber; }
-	public int getAptFloor() { return aptFloor; }
-	public void setAptFloor(int aptFloor) { this.aptFloor = aptFloor; }
-	public int getAptNumber() { return aptNumber; }
-	public void setAptNumber(int aptNumber) { this.aptNumber = aptNumber; } 
+	public String getStreetNumber() { return streetNumber; }
+	public void setStreetNumber(String streetNumber) { this.streetNumber = streetNumber; }
+	public String getAptFloor() { return aptFloor; }
+	public void setAptFloor(String aptFloor) { this.aptFloor = aptFloor; }
+	public String getAptNumber() { return aptNumber; }
+	public void setAptNumber(String aptNumber) { this.aptNumber = aptNumber; } 
 	
 	
 	public void parseAddress() {
@@ -45,10 +49,10 @@ public class PHSHungarianAddress {
 		if(isApartment()) {
 			inputAptFloor();
 			inputAptNumber();
-			
+			formatAddress();
 		}
 		else {
-			
+			formatAddress();
 		}
 	}
 	
@@ -71,7 +75,7 @@ public class PHSHungarianAddress {
 		System.out.println("Please enter the post code");
 		
 		Scanner sc = new Scanner(System.in);
-		postCode = sc.nextInt();
+		postCode = sc.nextLine();
 	}
 	
 	public void inputCity() {
@@ -92,21 +96,21 @@ public class PHSHungarianAddress {
 		System.out.println("Please enter the street number");
 		
 		Scanner sc = new Scanner(System.in);
-		streetNumber = sc.nextInt();
+		streetNumber = sc.nextLine();
 	}
 	
 	public void inputAptFloor() {
-		System.out.println("Please enter the apartment floor (integer value)");
+		System.out.println("Please enter the apartment floor");
 		
 		Scanner sc = new Scanner(System.in);
-		aptFloor = sc.nextInt();
+		aptFloor = sc.nextLine();
 	}
 	
 	public void inputAptNumber() {
-		System.out.println("Please enter the apartment number (integer value)");
+		System.out.println("Please enter the apartment number");
 		
 		Scanner sc = new Scanner(System.in);
-		aptNumber = sc.nextInt();
+		aptNumber = sc.nextLine();
 	}
 	
 	public Boolean isApartment() {
@@ -118,12 +122,32 @@ public class PHSHungarianAddress {
 		int i = sc.nextInt();
 		
 		if (i == 1) {
+			isApartment = 1;
 			return true;
 		}
 		else {
+			isApartment = 0;
 			return false;
 		}
 	}
 	
-	
+	public void formatAddress() {
+		addressCount++;
+		
+		ArrayList<String> address = new ArrayList<String>();
+		address.add(title);
+		address.add(lname);
+		address.add(fname);
+		address.add(postCode);
+		address.add(city);
+		address.add(streetName); 
+		address.add(streetNumber);
+		
+		if(isApartment == 1) {
+			address.add(aptFloor);
+			address.add(aptNumber);
+		}
+		
+		addressList.add(address);
+	}
 }
