@@ -1,4 +1,4 @@
-package package4;
+package assignment4;
 import java.util.Scanner;
 
 public class PHSprog4 {
