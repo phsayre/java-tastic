@@ -142,7 +142,7 @@ public class PHSHungarianAddress {
 	
 	public void displayAddresses() {
 		for(int i = 0; i < addressList.size(); i++) {
-			System.out.println("[Address " + (i + 1) + "]");
+			System.out.println("[Hungarian Address " + (i + 1) + "]");
 			System.out.println(addressList.get(i).get(0).toString() + " " + addressList.get(i).get(1).toString() + " " + addressList.get(i).get(2).toString());
 			System.out.println(addressList.get(i).get(3).toString() + " " + addressList.get(i).get(4).toString());
 

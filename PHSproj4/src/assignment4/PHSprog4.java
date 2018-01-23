@@ -14,11 +14,19 @@ public class PHSprog4 {
 		if(i == 1) {
 			PHSHungarianAddress hungy = new PHSHungarianAddress();
 			PHSAmericanAddress merca = new PHSAmericanAddress();
-			if(hungy.hasAddresses()) {
+			
+			if(hungy.hasAddresses() && merca.hasAddresses()) {
 				hungy.displayAddresses();
+				merca.displayAddresses();
+				System.out.println("Test 1");
 			}
 			else if(merca.hasAddresses()) {
 				merca.displayAddresses();
+				System.out.println("Test 2");
+			}
+			else if(hungy.hasAddresses()) {
+				hungy.displayAddresses();
+				System.out.println("HUULLOO");
 			}
 			else {
 				System.out.println("No saved addresses!");

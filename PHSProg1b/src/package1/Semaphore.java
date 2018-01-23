@@ -13,6 +13,7 @@ public class Semaphore {
 		sem = 1;
 	}
 	
+	//returns the value of the semaphore
 	public int semStatus() {
 		return sem;
 	}

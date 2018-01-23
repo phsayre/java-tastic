@@ -1,6 +1,6 @@
 package package1;
 
-public class PHSProducerb {
+public class PHSProducerc {
 	
 	
 	public int produceInt(int value) {

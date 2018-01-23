@@ -9,7 +9,7 @@ public class PHSAmericanAddress extends PHSHungarianAddress {
 	
 	public void displayAddresses() {
 		for(int i = 0; i < addressList.size(); i++) {
-			System.out.println("[Address " + (i + 1) + "]");
+			System.out.println("[American Address " + (i + 1) + "]");
 			System.out.println(addressList.get(i).get(0).toString() + " " + addressList.get(i).get(2).toString() + " " + addressList.get(i).get(1).toString());
 			try {
 				System.out.println(addressList.get(i).get(6).toString() + " " + addressList.get(i).get(5).toString() + " " + addressList.get(i).get(7).toString() + " " + addressList.get(i).get(8).toString());
