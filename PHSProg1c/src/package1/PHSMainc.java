@@ -10,7 +10,7 @@ public class PHSMainc{
 	public static void main(String[] args){
 		
 		//the first semaphore
-		Semaphore semaphore = new Semaphore();
+		Semaphorec semaphore = new Semaphorec();
 		semaphore.semSignal();
 		
 		//the producer and its thread
